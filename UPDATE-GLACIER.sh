@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Require the script to be run as root
+if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+    echo "[ X ] Please run Glacier update script as root."
+    exit
+fi
+
 echo "[ i ] Removing outdated binaries..."
 rm /bin/glacier-install
 rm /bin/glacier-update
