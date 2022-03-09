@@ -1,6 +1,12 @@
 #!/bin/sh
 # Glacier Installation Script
 
+# Require the script to be run as root
+if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+    echo "[ X ] Please run Glacier installation script as root."
+    exit
+fi
+
 mkdir /etc/glacier && echo "[ i ] Creating /etc/glacier..."
 mkdir /etc/glacier/pkginfo && echo "Creating /etc/glacier/pkginfo..."
 chmod +x glacier-install.sh
@@ -16,4 +22,4 @@ mv glacier-install /bin
 mv glacier-remove /bin
 mv glacier-update /bin
 mv glacier-query /bin
-echo "[ i ] Glacier has finished installing successfully
+echo "[ i ] Glacier has finished installing successfully."
