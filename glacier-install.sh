@@ -10,9 +10,17 @@ fi
 
 echo "[ ? ] Enter package name:" && read input
 echo "[ i ] Downloading $input.tar.gz"
-wget https://github.com/everest-linux/glacier-pkgs/raw/main/pkgs/$input.tar.gz || echo "[ X ] Failed to get archive for $input."
+wget https://github.com/everest-linux/glacier-pkgs/raw/main/pkgs/$input.tar.gz
+if [ "$?" != "0" ]; then
+    echo "[ X ] Could not get archive for $input." 1>&2
+    exit 1
+fi
 echo "[ i ] Unpacking $input.tar.gz..."
-tar -xvf $input.tar.gz || echo "[ X ] Failed to unpack archive for $input."
+tar -xvf $input.tar.gz
+if [ "$?" != "0" ]; then
+    echo "[ X ] Could not unpack $input.tar.gz" 1>&2
+    exit 1
+fi
 cd $input
 chmod +x INSTALL.sh
 ./INSTALL.sh # Actually executes installation script
@@ -23,8 +31,4 @@ rm INSTALL.sh
 rm UPDATE.sh
 rm REMOVE.sh  # Cleans up installation files
 rm LICENSE.md
-echo "[ i ] Finished installation of $input."
-if [ "$?" != "0" ]; then
-    echo "[ X ] Installation of $input failed." 1>&2
-    exit 1
-fi
+echo "[ i ] Operation completed."
