@@ -23,4 +23,8 @@ rm INSTALL.sh
 rm UPDATE.sh
 rm REMOVE.sh  # Cleans up installation files
 rm LICENSE.md
-echo "[ i ] Finished installation of $input." || echo "[ X ] Installation of $input failed." # Indicates success || Indicates failure
+echo "[ i ] Finished installation of $input."
+if [ "$?" != "0" ]; then
+    echo "[ X ] Installation of $input failed." 1>&2
+    exit 1
+fi
