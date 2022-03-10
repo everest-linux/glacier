@@ -10,9 +10,17 @@
 
 echo "[ ? ] Enter package name:" && read input
 echo "[ i ] Preparing to remove $input..."
-wget https://github.com/everest-linux/glacier-pkgs/raw/main/pkgs/$input.tar.gz || echo "[ X ] Failed to prepare $input for removal."
+wget https://github.com/everest-linux/glacier-pkgs/raw/main/pkgs/$input.tar.gz
+if [ "$?" != "0" ]; then
+    echo "[ X ] Could not get archive for $input." 1>&2
+    exit 1
+fi
 echo "[ i ] Fetching removal instructions..."
-tar -xvf $input.tar.gz || echo "[ X ] Failed to fetch removal instructions."
+tar -xvf $input.tar.gz
+if [ "$?" != "0" ]; then
+    echo "[ X ] Could not unpack $input.tar.gz" 1>&2
+    exit 1
+fi
 cd $input
 chmod +x REMOVE.sh
 ./REMOVE.sh
@@ -25,4 +33,4 @@ rm LICENSE.md
 rm $input.tar.gz
 rm $input-pkginfo.json
 rm $input
-echo "[ i ] Finished removal of $input." || echo "[ X ] Removal of $input failed."
+echo "[ i ] Operation completed."
