@@ -6,3 +6,10 @@ if [[ $(/usr/bin/id -u) -ne 0 ]]; then
     exit
 fi
 
+echo "[ ! ] It is recommended to uninstall all Glacier packages before uninstalling Glacier."
+rm -rf /etc/glacier
+rm /bin/glacier-install
+rm /bin/glacier-update
+rm /bin/glacier-remove
+rm /bin/glacier-query
+rm /bin/glacier-help
