@@ -1,5 +1,5 @@
 # Glacier
-Glacier is the package manager developed for Everest Linux. It fetches packages https://github.com/everest-linux/glacier-pkgs
+Glacier is the package manager developed for Everest Linux. It fetches packages from https://github.com/everest-linux/glacier-pkgs
 
 For Glacier to work properly, it needs the following directories to be made:
 
