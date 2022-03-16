@@ -22,7 +22,6 @@ if [ "$?" != "0" ]; then
     echo "[ X ] Could not unpack $input.tar.gz" 1>&2
     exit 1
 fi
-cd $input
 chmod +x INSTALL.sh
 ./INSTALL.sh # Actually executes installation script
 echo "[ i ] Cleaning up..." # Status message
