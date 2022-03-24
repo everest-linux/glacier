@@ -16,7 +16,7 @@ if [ "$?" != "0" ]; then
     exit 1
 fi
 echo "[ i ] Unpacking $input.tar.gz..."
-mkdir $input && cd $input
+mkdir $input && mv input.tar.gz $input && cd $input
 tar -xvf ../$input.tar.gz
 if [ "$?" != "0" ]; then
     echo "[ X ] Could not unpack $input.tar.gz" 1>&2
@@ -26,9 +26,6 @@ chmod +x INSTALL.sh
 ./INSTALL.sh # Actually executes installation script
 echo "[ i ] Cleaning up..." # Status message
 mv $input-pkginfo.json /etc/glacier/pkginfo
-rm $input.tar.gz
-rm INSTALL.sh
-rm UPDATE.sh
-rm REMOVE.sh  # Cleans up installation files
-rm LICENSE.md
+cd ..
+rm -rf $input
 echo "[ i ] Operation completed."
