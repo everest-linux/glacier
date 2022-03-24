@@ -17,7 +17,7 @@ if [ "$?" != "0" ]; then
 fi
 echo "[ i ] Unpacking $input.tar.gz..."
 mkdir $input && mv input.tar.gz $input && cd $input
-tar -xvf ../$input.tar.gz
+tar -xvf $input.tar.gz
 if [ "$?" != "0" ]; then
     echo "[ X ] Could not unpack $input.tar.gz" 1>&2
     exit 1
