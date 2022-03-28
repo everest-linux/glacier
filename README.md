@@ -5,7 +5,13 @@ For Glacier to work properly, it needs the following directories to be made:
 
   `/etc/glacier/pkginfo`
   
+Glacier depends on wget and tar for its backends. It also requires a working C compiler for source packages to work correctly. Some packages may have their own sets of dependencies. All of these are configured by default in the Everest rootfs tarball, but you may need some extra configuration to get these programs.
+
+Glacier is intended to be a universal package manager, and should work on all distros, providing you have wget and tar installed. For the sake of compatibility, all scripts submitted should contain **NON DISTRO SPECIFIC COMMANDS**.
+  
  ## Latest News
+ 
+ 3/28/22 > Recovered from sickness, released 0.4rc. This update provides proper cleanup after an operation is complete. This is done by making a temporary directory that the tarball will be unpacked into.
  
  3/22/22 > Sorry for a lack of updates recently, I've been sick 
  
