@@ -13,7 +13,7 @@ echo "[ ! ] ls /etc/glacier/pkginfo"
 while true; do
     read -p "[ ? ] Would you like to uninstall Glacier?" yn
     case $yn in
-        [Yy]* ) rm -rf /etc/glacier && rm /bin/glacier-install && rm /bin/glacier-update && rm /bin/glacier-remove && rm /bin/glacier-query && rm /bin/glacier-help; break;;
+        [Yy]* ) rm -rf /etc/glacier && rm -rf /var/cache/glacier && rm /bin/glacier-install && rm /bin/glacier-update && rm /bin/glacier-remove && rm /bin/glacier-query && rm /bin/glacier-help; break;;
         [Nn]* ) exit;;
         * ) echo "[ ! ] You must answer either yes or no.";;
     esac
