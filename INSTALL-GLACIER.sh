@@ -14,16 +14,25 @@ chmod +x glacier-install.sh
 chmod +x glacier-remove.sh
 chmod +x glacier-update.sh
 chmod +x glacier-query.sh
+chmod +x glacier-cache.sh
+chmod +x glacier-cache-install.sh
+chmod +x glacier-cache-clear.sh
 chmod +x glacier-help.sh
 echo "[ i ] Installing glacier..."
 cp glacier-install.sh glacier-install
 cp glacier-remove.sh glacier-remove
 cp glacier-update.sh glacier-update
 cp glacier-query.sh glacier-query
+cp glacier-cache.sh glacier-cache
+cp glacier-cache-install.sh glacier-cache-install
+cp glacier-cache-clear.sh glacier-cache-clear
 cp glacier-help.sh glacier-help
 mv glacier-install /bin
 mv glacier-remove /bin
 mv glacier-update /bin
 mv glacier-query /bin
+mv glacier-cache /bin
+mv glacier-cache-install /bin
+mv glacier-cache-clear /bin
 mv glacier-help /bin
 echo "[ i ] Glacier has finished installing successfully."
