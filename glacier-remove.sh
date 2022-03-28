@@ -16,21 +16,16 @@ if [ "$?" != "0" ]; then
     exit 1
 fi
 echo "[ i ] Fetching removal instructions..."
+mkdir -v $input && mv -v $inpit.tar.gz $input && cd $input
 tar -xvf $input.tar.gz
 if [ "$?" != "0" ]; then
     echo "[ X ] Could not unpack $input.tar.gz" 1>&2
     exit 1
 fi
-cd $input
 chmod +x REMOVE.sh
 ./REMOVE.sh
 echo "[ i ] Cleaning up..."
+cd ..
+rm -rvf $input
 rm /etc/glacier/pkginfo/$input-pkginfo.json
-rm INSTALL.sh
-rm UPDATE.sh
-rm REMOVE.sh
-rm LICENSE.md
-rm $input.tar.gz
-rm $input-pkginfo.json
-rm $input
 echo "[ i ] Operation completed."
