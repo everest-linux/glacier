@@ -2,7 +2,7 @@
 # glacier-update
 # Script used to update packages
 
-# Require the script to be run as root
+# Script messes shit up if you don't run as root so thats why this is here
 if [[ $(/usr/bin/id -u) -ne 0 ]]; then
     echo "[ X ] Please run Glacier as root."
     exit
@@ -16,18 +16,16 @@ if [ "$?" != "0" ]; then
     exit 1
 fi
 echo "[ i ] Unpacking $input,tar.gz..."
+mkdir -v $input && mv -v $input.tar.gz $input && cd $input
 tar -xvf $input.tar.gz 
 if [ "$?" != "0" ]; then
     echo "[ X ] Could not unpack $input.tar.gz" 1>&2
     exit 1
 fi
-cd $input
 chmod +x UPDATE.sh
 ./UPDATE.sh
-rm /etc/glacier/pkginfo/$input-pkginfo.json
-mv $input-pkginfo.json /etc/glacier/pkginfo
-rm $input.tar.gz
-rm INSTALL.sh
-rm UPDATE.sh
-rm REMOVE.sh
+echo "[ i ] Cleaning up..."
+mv -v $input-pkginfo.json /etc/glacier/pkginfo
+cd ..
+rm -rvf $input
 echo "[ i ] Operation completed."
