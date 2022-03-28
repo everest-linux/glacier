@@ -16,4 +16,4 @@ if [ "$?" != "0" ]; then
     exit 1
 fi
 mv $input.tar.gz /var/cache/glacier
-echo "[ i ] Operation completed.
+echo "[ i ] Operation completed."
