@@ -9,7 +9,7 @@ if [[ $(/usr/bin/id -u) -ne 0 ]]; then
 fi
 
 echo "[ ? ] Enter package name:" && read input
-echo "[ i ] Downloading $input.tar.gz..."
+echo "[ i ] Updating $input.tar.gz..."
 wget https://github.com/everest-linux/glacier-pkgs/raw/main/pkgs/$input.tar.gz
 if [ "$?" != "0" ]; then
     echo "[ X ] Could not get archive for $input." 1>&2
