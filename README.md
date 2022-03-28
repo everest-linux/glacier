@@ -13,6 +13,8 @@ Glacier is intended to be a universal package manager, and should work on all di
   
  ## Latest News
  
+ 3/28/22 (again) > Added package caching. This is useful if the user wishes to customize package instruction scripts before installing. 0.5rc
+ 
  3/28/22 > Recovered from sickness, released 0.4rc. This update provides proper cleanup after an operation is complete. This is done by making a temporary directory that the tarball will be unpacked into. Also added the logo to README.md
  
  3/22/22 > Sorry for a lack of updates recently, I've been sick 
