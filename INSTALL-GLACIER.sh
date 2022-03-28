@@ -7,8 +7,9 @@ if [[ $(/usr/bin/id -u) -ne 0 ]]; then
     exit
 fi
 
-mkdir /etc/glacier && echo "[ i ] Creating /etc/glacier..."
-mkdir /etc/glacier/pkginfo && echo "Creating /etc/glacier/pkginfo..."
+mkdir /etc/glacier && echo "[ i ] Creating Glacier directory..."
+mkdir /etc/glacier/pkginfo && echo "[ i ] Creating Glacier package list directory..."
+mkdir /var/cache/glacier && echo "[ i ] Creating Glacier package cache..."
 chmod +x glacier-install.sh
 chmod +x glacier-remove.sh
 chmod +x glacier-update.sh
