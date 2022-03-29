@@ -9,5 +9,5 @@ if [[ $(/usr/bin/id -u) -ne 0 ]]; then
 fi
 
 echo "[ i ] Clearing cache..."
-rm -rf /var/cache/glacier
+cd /var/cache/glacier && rm *.tar.gz
 echo "[ i ] Cache was cleared."
