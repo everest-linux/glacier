@@ -10,7 +10,7 @@ fi
 
 echo "[ ? ] Enter package name:" && read input
 echo "[ i ] Checking cache for $input.tar.gz"
-cd /var/cache/glacier && mv $input.tar.gz /tmp && cd /tmp
+cd /var/cache/glacier && cp $input.tar.gz /tmp && cd /tmp
 if [ "$?" != "0" ]; then
     echo "[ X ] Could not fetch $input.tar.gz from cache." 1>&2
     exit 1
