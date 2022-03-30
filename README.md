@@ -8,8 +8,12 @@ For Glacier to work properly, you need to have both wget and tar installed.
 Glacier depends on wget and tar for its backends. It also requires a working C compiler for source packages to work correctly. Some packages may have their own sets of dependencies. All of these are configured by default in the Everest rootfs tarball, but you may need some extra configuration to get these programs.
 
 Glacier is intended to be a universal package manager, and should work on all distros, providing you have wget and tar installed. For the sake of compatibility, all scripts submitted should contain **NON DISTRO SPECIFIC COMMANDS**.
+
+# Submitting Packages
+
+Packages should be submitted by sending a pull request. A maintainer will test the package to make sure it downloads correctly.
   
- ## Latest News
+# Latest News
  
  3/28/22 (again) > Added package caching. This is useful if the user wishes to customize package instruction scripts before installing. 0.5rc
  
