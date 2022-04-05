@@ -4,6 +4,7 @@
 
 echo "[ ? ] Enter package name:" && read input
 cat /etc/glacier/pkginfo/$input-pkginfo.json
+cat /var/log/glacier/$input.timestamp
 if [ "$?" != "0" ]; then
     echo "[ X ] Package $input not found!" 1>&2
     exit 1
