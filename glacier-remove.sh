@@ -24,6 +24,7 @@ if [ "$?" != "0" ]; then
 fi
 chmod +x REMOVE.sh
 ./REMOVE.sh
+rm /var/log/glacier/$input.timestamp
 echo "[ i ] Cleaning up..."
 cd ..
 rm -rvf $input
