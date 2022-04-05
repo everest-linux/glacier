@@ -23,7 +23,9 @@ if [ "$?" != "0" ]; then
     exit 1
 fi
 chmod +x UPDATE.sh
+chmod +x $input.ts.sh
 ./UPDATE.sh
+./$input.ts.sh
 echo "[ i ] Cleaning up..."
 mv -v $input-pkginfo.json /etc/glacier/pkginfo
 cd ..
