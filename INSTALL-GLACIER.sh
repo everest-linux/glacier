@@ -10,6 +10,7 @@ fi
 mkdir /etc/glacier && echo "[ i ] Creating Glacier directory..."
 mkdir /etc/glacier/pkginfo && echo "[ i ] Creating Glacier package list directory..."
 mkdir /var/cache/glacier && echo "[ i ] Creating Glacier package cache..."
+mkdir /var/log/glacier && echo "[ i ] Creating Glacier timestamp log..."
 chmod +x glacier-install.sh
 chmod +x glacier-remove.sh
 chmod +x glacier-update.sh
