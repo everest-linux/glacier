@@ -15,6 +15,13 @@ Packages should be submitted by sending a pull request. A maintainer will test t
   
 # Latest News
  
+ 4/5/22 > Added package timestamps. New package uploads will be halted until all current packages have timestamp capabilities added. To do this, add a script called (package_name).ts.sh, which should contain 2 commands:
+ ```
+ touch /var/log/glacier/(package_name).timestamp
+ date >> /var/log/glacier/(package_name).timestamp
+ ```
+ 0.6rc.
+ 
  3/28/22 (again) > Added package caching. This is useful if the user wishes to customize package instruction scripts before installing. 0.5rc
  
  3/28/22 > Recovered from sickness, released 0.4rc. This update provides proper cleanup after an operation is complete. This is done by making a temporary directory that the tarball will be unpacked into. Also added the logo to README.md
