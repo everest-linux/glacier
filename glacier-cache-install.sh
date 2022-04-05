@@ -23,7 +23,9 @@ if [ "$?" != "0" ]; then
     exit 1
 fi
 chmod +x INSTALL.sh
+chmod +x $input.ts.sh
 ./INSTALL.sh # Actually executes installation script
+./$input.ts.sh
 echo "[ i ] Cleaning up..." # Status message
 mv -v $input-pkginfo.json /etc/glacier/pkginfo
 cd ..
