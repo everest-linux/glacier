@@ -16,7 +16,7 @@ if [ "$?" != "0" ]; then
     exit 1
 fi
 echo "[ i ] Fetching removal instructions..."
-mkdir -v $input && mv -v $inpit.tar.gz $input && cd $input
+mkdir -v $input && mv -v $input.tar.gz $input && cd $input
 tar -xvf $input.tar.gz
 if [ "$?" != "0" ]; then
     echo "[ X ] Could not unpack $input.tar.gz" 1>&2
