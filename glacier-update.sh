@@ -15,6 +15,7 @@ if [ "$?" != "0" ]; then
     echo "[ X ] Could not get archive for $input." 1>&2
     exit 1
 fi
+rm /var/log/glacier/$input.timestamp
 echo "[ i ] Unpacking $input,tar.gz..."
 mkdir -v $input && mv -v $input.tar.gz $input && cd $input
 tar -xvf $input.tar.gz 
@@ -28,6 +29,7 @@ chmod +x $input.ts.sh
 ./$input.ts.sh
 echo "[ i ] Cleaning up..."
 mv -v $input-pkginfo.json /etc/glacier/pkginfo
+mv $input.timestamp /var/log/glacier
 cd ..
 rm -rvf $input
 echo "[ i ] Operation completed."
