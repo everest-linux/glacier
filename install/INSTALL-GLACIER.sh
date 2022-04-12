@@ -12,14 +12,14 @@ mkdir /etc/glacier && echo "[ i ] Creating Glacier directory..."
 mkdir /etc/glacier/pkginfo && echo "[ i ] Creating Glacier package list directory..."
 mkdir /var/cache/glacier && echo "[ i ] Creating Glacier package cache..."
 mkdir /var/log/glacier && echo "[ i ] Creating Glacier timestamp log..."
-chmod +x ../glacier-install.sh
-chmod +x ../glacier-remove.sh
-chmod +x ../glacier-update.sh
-chmod +x ../glacier-query.sh
-chmod +x ../glacier-cache.sh
-chmod +x ../glacier-cache-install.sh
-chmod +x ../glacier-cache-clear.sh
-chmod +x ../glacier-help.sh
+chmod +x ../scripts/glacier-install.sh
+chmod +x ../scripts/glacier-remove.sh
+chmod +x ../scripts/glacier-update.sh
+chmod +x ../scripts/glacier-query.sh
+chmod +x ../scripts/glacier-cache.sh
+chmod +x ../scripts/glacier-cache-install.sh
+chmod +x ../scripts/glacier-cache-clear.sh
+chmod +x ../scripts/glacier-help.sh
 echo "[ i ] Installing glacier..."
 cd ../scripts
 cp glacier-install.sh glacier-install
