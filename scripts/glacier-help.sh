@@ -1,0 +1,18 @@
+#!/bin/sh
+
+echo "Glacier Package Manager v0.5rc"
+echo "====================================================================="
+echo "An extremely light and fast ackage manager written entirely in shell."
+echo ""
+echo "glacier-install - Install a package"
+echo "glacier-update - Update a package"
+echo "glacier-remove - Remove a package"
+echo "glacier-query - Query a package"
+echo "glacier-cache - Add a package to the cache"
+echo "glacier-cache-install - Install a cached package"
+echo "glacier-cache-clear - Clear Glacier's cache"
+echo ""
+echo "IMPORTANT REMINDER - Glacier is unlike a traditional package manager where you apend a package name to the command. Instead, Glacier will ask you which package you wish to install."
+echo ""
+echo "Copyright (c) 2022 Everest Linux Developers"
+echo "This software includes no warranty whatsoever. See the GNU GPL v3.0 for more information."

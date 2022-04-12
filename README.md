@@ -14,6 +14,8 @@ Glacier is intended to be a universal package manager, and should work on all di
 Packages should be submitted by sending a pull request. A maintainer will test the package to make sure it downloads correctly.
   
 # Latest News
+
+ 4/12/22 > Added support for multiple repositories (world, galaxy, universe, multiverse, and their testing counterparts).
  
  4/5/22 > Added package timestamps. New package uploads will be halted until all current packages have timestamp capabilities added. To do this, add a script called (package_name).ts.sh, which should contain 2 commands:
  ```
