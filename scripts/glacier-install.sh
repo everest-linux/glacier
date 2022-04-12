@@ -10,7 +10,7 @@ fi
 
 echo "[ ? ] Enter package name:" && read input
 echo "[ i ] Installing $input.tar.gz"
-echo "Checking world..." && wget https://github.com/everest-linux/glacier-pkgs/raw/main/$GREPO1/$input.tar.gz
+echo "Checking world..." && wget https://github.com/everest-linux/glacier-pkgs/raw/main/world/$input.tar.gz
 if [ "$?" != "0" ]; then
     echo "[ i ] Not in world." 1>&2
     exit 1
