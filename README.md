@@ -15,6 +15,8 @@ Packages should be submitted by sending a pull request. A maintainer will test t
   
 # Latest News
 
+4/13/22 > Multi-repository support has been temporarily removed, due to incorrect error handling. 0.7.5rc
+
  4/12/22 > Added support for multiple repositories (world, galaxy, universe, multiverse, and their testing counterparts).
  
  4/5/22 > Added package timestamps. New package uploads will be halted until all current packages have timestamp capabilities added. To do this, add a script called (package_name).ts.sh, which should contain 2 commands:
@@ -33,3 +35,7 @@ Packages should be submitted by sending a pull request. A maintainer will test t
  3/16/22 > Vim has been added to Glacier's package collection as a source package. Additionally, a couple of bugs have been ironed out. To install vim, you must be on the latest version of Glacier. This can be done by cloning this repository, marking UPDATE-GLACIER.sh as executable, and running it as root. I plan on porting more vital system software to the repositories before I release another Everest tarball. Current version: (0.3rc)
  
  3/10/22 > Proper error handling has finally been added! If an operation fails, the package manager will quit, instead of continuing with the operation. Current version: (0.2rc)
+
+# Roadmap
+
+Sometime within the next few months: command line parsing and multi-repository support, all neccessary packages ported
