@@ -3,17 +3,17 @@
 # Script used to fetch installation scripts and run them
 
 # Define colors
-red="\033[1;31m"
-green="\033[1;32m"
-yellow="\033[1;33m"
-blue="\033[1;34m"
-reset="\033[m"
+export red="\033[1;31m"
+export green="\033[1;32m"
+export yellow="\033[1;33m"
+export blue="\033[1;34m"
+exportreset="\033[m"
 
 # Define unicode symbols
-check="\xE2\x9C\x93"
-error="\xE2\x9C\x95"
-warning="\x21"
-question="\x3F"
+export check="\xE2\x9C\x93"
+export error="\xE2\x9C\x95"
+export warning="\x21"
+export question="\x3F"
 
 # Require the script to be run as root
 if [[ $(/usr/bin/id -u) -ne 0 ]]; then
