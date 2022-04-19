@@ -2,32 +2,46 @@
 # glacier-install
 # Script used to fetch installation scripts and run them
 
+# Define colors
+red="\033[1;31m"
+green="\033[1;32m"
+yellow="\033[1;33m"
+blue="\033[1;34m"
+reset="\033[m"
+
+# Define unicode symbols
+check="\xE2\x9C\x93"
+error="\xE2\x9C\x95"
+warning="\x21"
+question="\x3F"
+
 # Require the script to be run as root
 if [[ $(/usr/bin/id -u) -ne 0 ]]; then
-    echo "[ X ] Please run Glacier as root."
+    echo "\033[1;31m[ $error ]\033[m Please run Glacier as root."
     exit
 fi
 
-echo "[ ? ] Enter package name:" && read input
-echo "[ i ] Installing $input.tar.gz"
+echo "\033[1;34m[ ? ]\033[m Enter package name:" && read input
+echo "\033[1;34m[ i ]\033[m Installing $input.tar.gz"
 echo "Checking world..." && wget https://github.com/everest-linux/glacier-pkgs/raw/main/world/$input.tar.gz
 if [ "$?" != "0" ]; then
-    echo "[ i ] Not in world." 1>&2
+    echo "\033[1;31m[ $error ]\033[m Package not found." 1>&2
     exit 1
 fi
-echo "[ i ] Unpacking $input.tar.gz..."
+echo "\033[1;34m[ i ]\033[m Unpacking $input.tar.gz..."
 mkdir -v $input && mv -v $input.tar.gz $input && cd $input
 tar -xvf $input.tar.gz
 if [ "$?" != "0" ]; then
-    echo "[ X ] Could not unpack $input.tar.gz" 1>&2
+    echo "\033[1;31m[ $error ]\033[m Could not unpack $input.tar.gz" 1>&2
     exit 1
 fi
 chmod +x INSTALL.sh
 chmod +x $input.ts.sh
+echo "\033[1;34m[ i ]\033[m Executing installation instructions..."
 ./INSTALL.sh # Actually executes installation script
 ./$input.ts.sh
-echo "[ i ] Cleaning up..." # Status message
+echo "\033[1;34m[ i ]\033[m Cleaning up..." # Status message
 mv -v $input-pkginfo.json /etc/glacier/pkginfo
 cd ..
 rm -rvf $input
-echo "[ i ] Operation completed."
+echo "\033[1;32m[ $check ]\033[m Operation completed."
