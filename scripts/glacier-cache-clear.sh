@@ -4,10 +4,10 @@
 
 # Require the script to be run as root
 if [[ $(/usr/bin/id -u) -ne 0 ]]; then
-    echo "[ X ] Please run Glacier as root."
+    printf "\033[1;31m [ $error ] \033[m Please run Glacier as root."
     exit
 fi
 
-echo "[ i ] Clearing cache..."
+printf "\033[1;34m [ i ] \033[m Clearing cache... "
 cd /var/cache/glacier && rm *.tar.gz
-echo "[ i ] Cache was cleared."
+printf "\033[1;32m [ $check ] \033[m Cache cleared."
