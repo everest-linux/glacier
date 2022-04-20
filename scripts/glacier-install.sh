@@ -37,7 +37,7 @@ if [ "$?" != "0" ]; then
 fi
 chmod +x INSTALL.sh
 chmod +x $input.ts.sh
-echo "\033[1;34m [ i ] \033[m Executing installation instructions... "
+printf "\033[1;34m [ i ] \033[m Executing installation instructions... "
 ./INSTALL.sh # Actually executes installation script
 ./$input.ts.sh
 printf "\033[1;34m [ i ] \033[m Cleaning up... " # Status message
