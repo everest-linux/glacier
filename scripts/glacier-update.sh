@@ -28,8 +28,8 @@ chmod +x $input.ts.sh
 ./UPDATE.sh
 ./$input.ts.sh
 printf "\033[1;34m [ i ] \033[m Cleaning up... "
-mv -v $input-pkginfo.json /etc/glacier/pkginfo
+mv $input-pkginfo.json /etc/glacier/pkginfo
 mv $input.timestamp /var/log/glacier
 cd ..
-rm -rvf $input
+rm -rf $input
 printf "\033[1;32m [ $check ] \033[m Operation completed."
