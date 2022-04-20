@@ -17,7 +17,7 @@ export question="\x3F"
 
 # Require the script to be run as root
 if [[ $(/usr/bin/id -u) -ne 0 ]]; then
-    echo "\033[1;31m [ $error ] \033[m Please run Glacier as root."
+    printf "\033[1;31m [ $error ] \033[m Please run Glacier as root."
     exit
 fi
 
