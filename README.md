@@ -20,9 +20,11 @@ Packages should be submitted by sending a pull request. A maintainer will test t
   
 # Latest News
 
+4/20/22 > Colored output, and proper unicode symbols. First stable Glacier release, 1.0
+
 4/13/22 > Multi-repository support has been temporarily removed, due to incorrect error handling. 0.7.5rc
 
- 4/12/22 > Added support for multiple repositories (world, galaxy, universe, multiverse, and their testing counterparts).
+4/12/22 > Added support for multiple repositories (world, galaxy, universe, multiverse, and their testing counterparts).
  
  4/5/22 > Added package timestamps. New package uploads will be halted until all current packages have timestamp capabilities added. To do this, add a script called (package_name).ts.sh, which should contain 2 commands:
  ```
