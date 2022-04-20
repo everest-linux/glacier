@@ -3,6 +3,11 @@
 # Glacier
 Glacier is the package manager developed for Everest Linux. It fetches packages from https://github.com/everest-linux/glacier-pkgs
 
+Install Glacier by pasting the following command into your terminal:
+
+`rm -rf /tmp/glacier && cd /tmp && git clone https://github.com/everest-linux/glacier &&
+cd glacier/install && chmod +x INSTALL-GLACIER.sh && sudo ./INSTALL-GLACIER.sh`
+
 For Glacier to work properly, you need to have both wget and tar installed.
 
 Glacier depends on wget and tar for its backends. It also requires a working C compiler for source packages to work correctly. Some packages may have their own sets of dependencies. All of these are configured by default in the Everest rootfs tarball, but you may need some extra configuration to get these programs on other distros, most notably, Arch and its derivatives.
