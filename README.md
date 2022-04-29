@@ -45,4 +45,6 @@ Packages should be submitted by sending a pull request. A maintainer will test t
 
 # Roadmap
 
+Future: musl libc and musl compiler compatability (change gcc to $CC)
+
 Sometime within the next few months: command line parsing and multi-repository support, all neccessary packages ported
