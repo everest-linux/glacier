@@ -15,6 +15,10 @@ export error="\xE2\x9C\x95"
 export warning="\x21"
 export question="\x3F"
 
+# Glacier preloading
+
+source /etc/glacier.conf
+
 # Require the script to be run as root
 if [[ $(/usr/bin/id -u) -ne 0 ]]; then
     printf "\033[1;31m [ $error ] \033[m Please run Glacier as root."
