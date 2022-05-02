@@ -2,6 +2,10 @@
 # glacier-update
 # Script used to update packages
 
+# Glacier preloading
+
+source /etc/glacier.conf
+
 # Require Glacier to be run as root
 if [[ $(/usr/bin/id -u) -ne 0 ]]; then
     printf "\033[1;31m [ $error ] \033[m Please run Glacier as root."
