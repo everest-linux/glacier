@@ -2,6 +2,10 @@
 # glacier-query
 # Script used to query packages on the system
 
+# Glacier preloading
+
+source /etc/glacier.conf
+
 printf "\033[1;34m [ ? ] \033[m Enter package name: " && read input
 cat /etc/glacier/pkginfo/$input-pkginfo.json
 cat /var/log/glacier/$input.timestamp
