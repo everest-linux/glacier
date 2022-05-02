@@ -2,6 +2,10 @@
 # glacier-cache-install
 # Script used to install cached packages
 
+# Glacier preloading
+
+source /etc/glacier.conf
+
 # Require the script to be run as root
 if [[ $(/usr/bin/id -u) -ne 0 ]]; then
     echo "[ X ] Please run Glacier as root."
