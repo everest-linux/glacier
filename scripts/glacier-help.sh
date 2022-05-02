@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Glacier Package Manager v0.5rc"
+echo "Glacier Package Manager v1.0"
 echo "====================================================================="
 echo "An extremely light and fast ackage manager written entirely in shell."
 echo ""
