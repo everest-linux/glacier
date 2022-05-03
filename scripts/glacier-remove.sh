@@ -26,13 +26,13 @@ if [[ $(/usr/bin/id -u) -ne 0 ]]; then
 fi
 
 printf "\033[1;34m [ ? ] \033[m Enter package name: " && read input
-printf "\033[1;34m [ i ] \033[m Removing $input.tar.gz... "
-printf "Checking world... " && wget https://github.com/everest-linux/glacier-pkgs/raw/main/world/$input.tar.gz
+printf "\033[1;34m [ i ] \033[m Removing $input.tar.gz...\n"
+printf "Checking world... " && wget https://github.com/everest-linux/glacier-pkgs/raw/main/world/$input.tar.gz -q --show-progress
 if [ "$?" != "0" ]; then
     printf "\033[1;31m [ $error ] \033[m Package not found. " 1>&2
     exit 1
 fi
-printf "\033[1;34m [ i ] \033[m Unpacking $input.tar.gz... "
+printf "\033[1;34m [ i ] \033[m Unpacking $input.tar.gz...\n"
 mkdir $input && mv $input.tar.gz $input && cd $input
 tar -xf $input.tar.gz
 if [ "$?" != "0" ]; then
@@ -42,8 +42,8 @@ fi
 chmod +x REMOVE.sh
 ./REMOVE.sh
 rm /var/log/glacier/$input.timestamp
-printf "\033[1;34m [ i ] \033[m Cleaning up... " # Status message
+printf "\033[1;34m [ i ] \033[m Cleaning up... \n" # Status message
 cd ..
 rm -rf $input
 rm /etc/glacier/pkginfo/$input-pkginfo.json
-printf "\033[1;32m [ $check ] \033[m Operation completed."
+printf "\033[1;32m [ $check ] \033[m Operation completed.\n"
