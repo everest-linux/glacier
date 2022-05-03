@@ -13,5 +13,5 @@ if [[ $(/usr/bin/id -u) -ne 0 ]]; then
 fi
 
 printf "\033[1;34m [ i ] \033[m Clearing cache... "
-cd /var/cache/glacier && rm *.tar.gz
+cd /var/cache/glacier && rm *
 printf "\033[1;32m [ $check ] \033[m Cache cleared."
