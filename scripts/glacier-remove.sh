@@ -27,7 +27,7 @@ fi
 
 printf "\033[1;34m [ ? ] \033[m Enter package name: " && read input
 printf "\033[1;34m [ i ] \033[m Removing $input.tar.gz...\n"
-printf "Checking world... " && wget https://github.com/everest-linux/glacier-pkgs/raw/main/world/$input.tar.gz -q --show-progress
+printf "Checking world... " && wget $GREPO1/$input.tar.gz -q --show-progress || wget $GREPO2/$input.tar.gz -q --show-progress || wget $GREPO3/$input.tar.gz -q --show-progress || wget $GREPO4/$input.tar.gz -q --show-progress || wget $GREPO5/$input.tar.gz -q --show-progress || wget $GREPO6/$input.tar.gz -q --show-progress || wget $GREPO7/$input.tar.gz -q --show-progress || wget $GREPO8/$input.tar.gz -q --show-progress
 if [ "$?" != "0" ]; then
     printf "\033[1;31m [ $error ] \033[m Package not found. " 1>&2
     exit 1
