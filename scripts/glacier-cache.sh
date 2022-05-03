@@ -13,8 +13,8 @@ if [[ $(/usr/bin/id -u) -ne 0 ]]; then
 fi
 
 printf "\033[1;34m [ ? ] \033[m Enter package name: " && read input
-printf "\033[1;34m [ i ] \033[m Caching $input.tar.gz... "
-printf "Checking world... " && wget https://github.com/everest-linux/glacier-pkgs/raw/main/world/$input.tar.gz
+printf "\033[1;34m [ i ] \033[m Caching $input.tar.gz...\n"
+printf "Checking world... " && wget https://github.com/everest-linux/glacier-pkgs/raw/main/world/$input.tar.gz -q --show-progress
 if [ "$?" != "0" ]; then
     printf "\033[1;31m [ $error ] \033[m Package not found. " 1>&2
     exit 1
