@@ -27,7 +27,7 @@ fi
 
 printf "\033[1;34m [ ? ] \033[m Enter package name: " && read input
 printf "\033[1;34m [ i ] \033[m Installing $input.tar.gz...\n"
-printf "Checking world... " && wget $GREPO1/$input.tar.gz -q --show-progress || wget $GREPO2/$input.tar.gz -q --show-progress || wget $GREPO3/$input.tar.gz -q --show-progress || wget $GREPO4/$input.tar.gz -q --show-progress || wget $GREPO5/$input.tar.gz -q --show-progress || wget $GREPO6/$input.tar.gz -q --show-progress || wget $GREPO7/$input.tar.gz -q --show-progress || wget $GREPO8/$input.tar.gz -q --show-progress
+printf "\033[1;34m [ i ] \033[m Checking databases... " && wget $GREPO1/$input.tar.gz -q --show-progress || wget $GREPO2/$input.tar.gz -q --show-progress || wget $GREPO3/$input.tar.gz -q --show-progress || wget $GREPO4/$input.tar.gz -q --show-progress || wget $GREPO5/$input.tar.gz -q --show-progress || wget $GREPO6/$input.tar.gz -q --show-progress || wget $GREPO7/$input.tar.gz -q --show-progress || wget $GREPO8/$input.tar.gz -q --show-progress
 if [ "$?" != "0" ]; then
     printf "\033[1;31m [ \xE2\x9C\x95 ] \033[m Package not found. " 1>&2
     exit 1
