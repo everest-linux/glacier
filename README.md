@@ -20,6 +20,8 @@ Packages should be submitted by sending a pull request. A maintainer will test t
   
 # Latest News
 
+5/17/22 > Considering adding command line parsing
+
 5/3/22 > Multi repository support is back! 1.2
 
 5/3/22 > Multi-repository support might return, as I've discovered "||". 1.1 (only minor changes, such as line printing)
