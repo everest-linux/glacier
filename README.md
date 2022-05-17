@@ -16,7 +16,7 @@ Glacier is intended to be a universal package manager, and should work on all di
 
 # Submitting Packages
 
-Packages should be submitted by sending a pull request. A maintainer will test the package to make sure it downloads correctly.
+Packages should be submitted by sending a pull request to https://github.com/everest-linux/glacier-pkgs, with your package in the proper testing repository (if its system software, world-testing, if its gpl software, galaxy-testing, etc). A maintainer will test the package to make sure it downloads correctly.
   
 # Latest News
 
