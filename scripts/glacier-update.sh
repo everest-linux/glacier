@@ -4,7 +4,7 @@
 
 # Glacier preloading
 
-source /etc/glacier.conf
+source /etc/glacier/hooks.sh
 
 # Require Glacier to be run as root
 if [[ $(/usr/bin/id -u) -ne 0 ]]; then
