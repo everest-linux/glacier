@@ -20,6 +20,8 @@ Packages should be submitted by sending a pull request to https://github.com/eve
   
 # Latest News
 
+5/27/22 > Happy Memorial Day to everyone in the US. I've added a new file, `/etc/glacier/hooks.sh` that will define startup hooks when any Glacier script is run. 1.3
+
 5/17/22 > Considering adding command line parsing
 
 5/3/22 > Multi repository support is back! 1.2
