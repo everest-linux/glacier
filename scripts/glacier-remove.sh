@@ -17,7 +17,7 @@ export question="\x3F"
 
 # Glacier preloading
 
-source /etc/glacier/hooks/sh
+source /etc/glacier/hooks.sh
 
 # Require the script to be run as root
 if [[ $(/usr/bin/id -u) -ne 0 ]]; then
