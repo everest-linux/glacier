@@ -1,0 +1,206 @@
+#!/bin/sh
+# Glacier - A source based package manager written in POSIX sh
+# (C) 2022 Everest Developers
+# This program is free software: see the GNU GPL v3.0 for details.
+
+# Preloading
+
+source /etc/glacier/hooks.sh
+
+while [[ $# -gt 0 ]]; do
+	case $1 in
+		-h|--help)
+		printf "$blue Glacier - A source based package manager written in POSIX sh $reset\n"
+		printf "glacier {-h --help}			show this message and exit\n"
+		printf "glacier {--version}			display the current Glacier version and exit\n"
+		printf "glacier {install -f}			install a package\n"
+		printf "glacier {update -u}			update a package\n"
+		printf "glacier {remove -x}			remove a package\n"
+		printf "glacier {query -q}			query a package\n"
+		printf "glacier {cache -c}			cache a package\n"
+		printf "glacier {cache-install -ci}		install a cached package\n"
+		printf "glacier {cache-clear -cc}		clear the package cache\n"
+		printf "\n"
+		printf "This program is free software: see the GNU GPL v3.0 for details.\n"
+		exit 0
+		;;
+		--version)
+		printf "$blue Glacier v2.0 $reset\n"
+		exit 0
+		;;
+		install|-f)
+		# Require the script to be run as root
+		if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+    			printf "\033[1;31m [ \xE2\x9C\x95 ] \033[m Please run Glacier as root."
+    			exit
+		fi
+
+		printf "\033[1;34m [ ? ] \033[m Enter package name: " && read input
+		printf "\033[1;34m [ i ] \033[m Installing $input.tar.gz...\n"
+		printf "\033[1;34m [ i ] \033[m Checking databases... " && wget $GREPO1/$input.tar.gz -q --show-progress || wget $GREPO2/$input.tar.gz -q --show-progress || wget $GREPO3/$input.tar.gz -q --show-progress || wget $GREPO4/$input.tar.gz -q --show-progress || wget $GREPO5/$input.tar.gz -q --show-progress || wget $GREPO6/$input.tar.gz -q --show-progress || wget $GREPO7/$input.tar.gz -q --show-progress || wget $GREPO8/$input.tar.gz -q --show-progress
+		if [ "$?" != "0" ]; then
+    			printf "\033[1;31m [ \xE2\x9C\x95 ] \033[m Package not found. " 1>&2
+    			exit 1
+		fi
+		printf "\033[1;34m [ i ] \033[m Unpacking $input.tar.gz...\n"
+		mkdir $input && mv $input.tar.gz $input && cd $input
+		tar -xf $input.tar.gz
+			if [ "$?" != "0" ]; then
+    				printf "\033[1;31m [ \xE2\x9C\x95 ] \033[m Could not unpack $input.tar.gz. " 1>&2
+    				exit 1
+			fi
+		chmod +x INSTALL.sh
+		chmod +x $input.ts.sh
+		printf "\033[1;34m [ i ] \033[m Executing installation instructions...\n"
+		./INSTALL.sh # Actually executes installation script
+		./$input.ts.sh
+		printf "\033[1;34m [ i ] \033[m Cleaning up...\n" # Status message
+		mv $input-pkginfo.json /etc/glacier/pkginfo
+		cd ..
+		rm -rf $input
+		printf "\033[1;32m [ \xE2\x9C\x93 ] \033[m Operation completed.\n"
+		exit 0
+		;;
+		update|-u)
+		# Require Glacier to be run as root
+		if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+    			printf "\033[1;31m [ $error ] \033[m Please run Glacier as root."
+    			exit
+		fi
+
+		printf "\033[1;34m [ ? ] \033[m Enter package name: " && read input
+		printf "\033[1;34m [ i ] \033[m Installing $input.tar.gz...\n"
+		printf "\033[1;34m [ i ] \033[m Checking databases... " && wget $GREPO1/$input.tar.gz -q --show-progress || wget $GREPO2/$input.tar.gz -q --show-progress || wget $GREPO3/$input.tar.gz -q --show-progress || wget $GREPO4/$input.tar.gz -q --show-progress || wget $GREPO5/$input.tar.gz -q --show-progress || wget $GREPO6/$input.tar.gz -q --show-progress || wget $GREPO7/$input.tar.gz -q --show-progress || wget $GREPO8/$input.tar.gz -q --show-progress
+			if [ "$?" != "0" ]; then
+    				printf "\033[1;31m [ $error ] \033[m Package not found. " 1>&2
+    				exit 1
+			fi
+		printf "\033[1;34m [ i ] \033[m Unpacking $input.tar.gz...\n"
+		mkdir $input && mv $input.tar.gz $input && cd $input
+		tar -xf $input.tar.gz
+			if [ "$?" != "0" ]; then
+    				printf "\033[1;31m [ $error ] \033[m Could not unpack $input.tar.gz. " 1>&2
+    				exit 1
+			fi
+		rm /var/log/glacier/$input.timestamp
+		chmod +x UPDATE.sh
+		chmod +x $input.ts.sh
+		./UPDATE.sh
+		./$input.ts.sh
+		printf "\033[1;34m [ i ] \033[m Cleaning up...\n"
+		mv $input-pkginfo.json /etc/glacier/pkginfo
+		mv $input.timestamp /var/log/glacier
+		cd ..
+		rm -rf $input
+		printf "\033[1;32m [ $check ] \033[m Operation completed.\n"
+		exit 0
+		;;
+		remove|-x)
+		# Require the script to be run as root
+		if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+    			printf "\033[1;31m [ $error ] \033[m Please run Glacier as root."
+    			exit
+		fi
+
+		printf "\033[1;34m [ ? ] \033[m Enter package name: " && read input
+		printf "\033[1;34m [ i ] \033[m Removing $input.tar.gz...\n"
+		printf "\033[1;34m [ i ] \033[m Checking databases... " && wget $GREPO1/$input.tar.gz -q --show-progress || wget $GREPO2/$input.tar.gz -q --show-progress || wget $GREPO3/$input.tar.gz -q --show-progress || wget $GREPO4/$input.tar.gz -q --show-progress || wget $GREPO5/$input.tar.gz -q --show-progress || wget $GREPO6/$input.tar.gz -q --show-progress || wget $GREPO7/$input.tar.gz -q --show-progress || wget $GREPO8/$input.tar.gz -q --show-progress
+			if [ "$?" != "0" ]; then
+    				printf "\033[1;31m [ $error ] \033[m Package not found. " 1>&2
+    				exit 1
+			fi
+		printf "\033[1;34m [ i ] \033[m Unpacking $input.tar.gz...\n"
+		mkdir $input && mv $input.tar.gz $input && cd $input
+		tar -xf $input.tar.gz
+			if [ "$?" != "0" ]; then
+    				printf "\033[1;31m [ $error ] \033[m Could not unpack $input.tar.gz. " 1>&2
+    				exit 1
+			fi
+		chmod +x REMOVE.sh
+		./REMOVE.sh
+		rm /var/log/glacier/$input.timestamp
+		printf "\033[1;34m [ i ] \033[m Cleaning up... \n" # Status message
+		cd ..
+		rm -rf $input
+		rm /etc/glacier/pkginfo/$input-pkginfo.json
+		printf "\033[1;32m [ $check ] \033[m Operation completed.\n"
+		exit 0
+		;;
+		query|-q)
+		printf "\033[1;34m [ ? ] \033[m Enter package name: " && read input
+		cat /etc/glacier/pkginfo/$input-pkginfo.json
+		cat /var/log/glacier/$input.timestamp
+			if [ "$?" != "0" ]; then
+    				printf "\033[1;31m [ $error ] \033[m Package not found. " 1>&2
+    				exit 1
+			fi
+		exit 0
+		;;
+		cache|-c)
+		# Require the script to be run as root
+		if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+    			printf "\033[1;31m [ $error ] \033[m Please run Glacier as root."
+    			exit
+		fi
+
+		printf "\033[1;34m [ ? ] \033[m Enter package name: " && read input
+		printf "\033[1;34m [ i ] \033[m Caching $input.tar.gz...\n"
+		printf "\033[1;34m [ i ] \033[m Checking databases... " && wget $GREPO1/$input.tar.gz -q --show-progress || wget $GREPO2/$input.tar.gz -q --show-progress || wget $GREPO3/$input.tar.gz -q --show-progress || wget $GREPO4/$input.tar.gz -q --show-progress || wget $GREPO5/$input.tar.gz -q --show-progress || wget $GREPO6/$input.tar.gz -q --show-progress || wget $GREPO7/$input.tar.gz -q --show-progress || wget $GREPO8/$input.tar.gz -q --show-progress
+		if [ "$?" != "0" ]; then
+    			printf "\033[1;31m [ $error ] \033[m Package not found. " 1>&2
+    			exit 1
+		fi
+		mv $input.tar.gz /var/cache/glacier
+		printf "\033[1;32m [ $check ] \033[m Operation completed."
+		exit 0
+		;;
+		cache-install|-ci)
+		# Require the script to be run as root
+		if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+    			echo "$red[ $error ]$reset Please run Glacier as root."
+    			exit
+		fi
+
+		printf "\033[1;34m [ ? ] \033[m Enter package name: " && read input
+		printf "\033[1;34m [ i ] \033[m Checking cache for $input.tar.gz... "
+		cd /var/cache/glacier && cp $input.tar.gz /tmp && cd /tmp
+			if [ "$?" != "0" ]; then
+    				printf "\033[1;31m [ $error ] \033[m Could not fetch package from cache. " 1>&2
+    				exit 1
+			fi
+		printf "\033[1;34m [ i ] \033[m Unpacking $input.tar.gz... "
+		mkdir $input && mv $input.tar.gz $input && cd $input
+		tar -xf $input.tar.gz
+			if [ "$?" != "0" ]; then
+    				printf "\033[1;31m [ $error ] \033[m Could not unpack $input.tar.gz. " 1>&2
+    				exit 1
+			fi
+		chmod +x INSTALL.sh
+		chmod +x $input.ts.sh
+		./INSTALL.sh # Actually executes installation script
+		./$input.ts.sh
+		printf "\033[1;34m [ i ] \033[m Cleaning up... " # Status message
+		mv -v $input-pkginfo.json /etc/glacier/pkginfo
+		cd ..
+		rm -rvf $input
+		printf "\033[1;32m [ $check ] \033[m Operation completed."
+		exit 0
+		;;
+		cache-clear|-cc)
+		# Require the script to be run as root
+		if [[ $(/usr/bin/id -u) -ne 0 ]]; then
+    			printf "\033[1;31m [ $error ] \033[m Please run Glacier as root."
+    			exit
+		fi
+
+		printf "\033[1;34m [ i ] \033[m Clearing cache... "
+		cd /var/cache/glacier && rm *
+		printf "\033[1;32m [ $check ] \033[m Cache cleared."
+		exit 0
+		;;
+		-*|--*)
+		printf "$red[ $error ]$reset Unknown option, use 'glacier -h' to see usage. $reset"
+		exit 1
+		;;
+	esac
+done
