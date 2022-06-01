@@ -14,6 +14,8 @@ Glacier depends on wget and tar for its backends. It also requires a working C c
 
 Glacier is intended to be a universal package manager, and should work on all distros, providing you have wget and tar installed. For the sake of compatibility, all scripts submitted should contain **NON DISTRO SPECIFIC COMMANDS**.
 
+Glacier features both apt-like and pacman-like syntax (`glacier install` or `glacier -f`)
+
 # Submitting Packages
 
 Packages should be submitted by sending a pull request to https://github.com/everest-linux/glacier-pkgs, with your package in the proper testing repository (if its system software, world-testing, if its gpl software, galaxy-testing, etc). A maintainer will test the package to make sure it downloads correctly.
