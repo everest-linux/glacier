@@ -51,6 +51,8 @@ while [[ $# -gt 0 ]]; do
 			fi
 		chmod +x INSTALL.sh
 		chmod +x $input.ts.sh
+		printf "$blue [ i ] The following instruction set will be executed:$reset\n"
+		cat INSTALL.sh
 		printf "\033[1;34m [ i ] \033[m Executing installation instructions...\n"
 		./INSTALL.sh # Actually executes installation script
 		./$input.ts.sh
@@ -85,6 +87,9 @@ while [[ $# -gt 0 ]]; do
 		rm /var/log/glacier/$input.timestamp
 		chmod +x UPDATE.sh
 		chmod +x $input.ts.sh
+		printf "$blue [ i ]$reset The following instruction set will be executed:\n"
+		cat UPDATE.sh
+		printf "\033[1;34m [ i ] \033[m Executing update instructions...\n"
 		./UPDATE.sh
 		./$input.ts.sh
 		printf "\033[1;34m [ i ] \033[m Cleaning up...\n"
@@ -117,6 +122,9 @@ while [[ $# -gt 0 ]]; do
     				exit 1
 			fi
 		chmod +x REMOVE.sh
+		printf "$blue [ i ] The following instruction set will be executed:$reset\n"
+		cat REMOVE.sh
+		printf "$blue [ i ] Executing removal instructions...\n"
 		./REMOVE.sh
 		rm /var/log/glacier/$input.timestamp
 		printf "\033[1;34m [ i ] \033[m Cleaning up... \n" # Status message
