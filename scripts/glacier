@@ -211,7 +211,11 @@ while [[ $# -gt 0 ]]; do
 		exit 0
 		;;
 		-*|--*)
-		printf "$red[ $error ]$reset Unknown option, use 'glacier -h' to see usage. $reset"
+		printf "$red [ $error ]$reset Unknown option, use 'glacier -h' to see usage."
+		exit 1
+		;;
+		*)
+		printf "$red [ $error ]$reset Unknown option, use 'glacier -h' to see usage."
 		exit 1
 		;;
 	esac
