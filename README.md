@@ -57,6 +57,6 @@ Packages should be submitted by sending a pull request to https://github.com/eve
 
 # Roadmap
 
-Future: musl libc and musl compiler compatability (change gcc to $CC)
+Future: musl libc and musl compiler compatability (change gcc to $CC) (no clue why this is here because its already done lol)
 
-Sometime within the next few months: command line parsing and multi-repository support, all neccessary packages ported
+Sometime within the next few months: command line parsing and multi-repository support, all neccessary packages ported (still need more GNU packages)
