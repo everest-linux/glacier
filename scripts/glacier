@@ -25,7 +25,7 @@ while [[ $# -gt 0 ]]; do
 		exit 0
 		;;
 		--version)
-		printf "$blue Glacier v2.0 $reset\n"
+		printf "$blue Glacier v2.1 $reset\n"
 		exit 0
 		;;
 		install|-f)
