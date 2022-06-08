@@ -229,5 +229,9 @@ while [[ $# -gt 0 ]]; do
 		printf "$red [ $error ]$reset Unknown option, use 'glacier -h' to see usage.\n"
 		exit 1
 		;;
+		)
+		printf "$red [ $error ]$reset No arguments given, use 'glacier -h' to see usage.\n"
+		exit 1
+		;;
 	esac
 done
