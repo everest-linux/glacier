@@ -212,13 +212,13 @@ while [[ $# -gt 0 ]]; do
     			exit
 		fi
 
-		printf "\033[1;34m [ i ] \033[m Clearing cache... "
+		printf "\033[1;34m [ i ] \033[m Clearing cache...\n"
 		cd /var/cache/glacier && rm -rf *
 			if [ "$?" != "0" ]; then
     				printf "\033[1;31m [ $error ] \033[m Some items could not be cleared.\n" 1>&2
     				exit 1
 			fi
-		printf "\033[1;32m [ $check ] \033[m Cache cleared."
+		printf "\033[1;32m [ $check ] \033[m Cache cleared.\n"
 		exit 0
 		;;
 		-*|--*)
