@@ -22,7 +22,7 @@ Packages should be submitted by sending a pull request to https://github.com/eve
   
 # Latest News
 
-6/10/22 > ARM packages may be available soon. In the event you wish to install Everest on an ARM device, update `/etc/glacier.conf` accordingly, changing `glacier-pkgs` to `glacier-arm-pkgs`.
+6/10/22 > ARM packages may be available soon. In the event you wish to install Everest on an ARM device, update `/etc/glacier.conf` accordingly, changing `glacier-pkgs` to `glacier-arm-pkgs`. x86 packages will be designated as `amd64`, and ARM packages will be designated as `aarch64`
 
 6/8/22 > Basic package integrity checking. 2.1
 
