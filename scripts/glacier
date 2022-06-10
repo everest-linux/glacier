@@ -170,7 +170,7 @@ while [[ $# -gt 0 ]]; do
 		printf "$blue [ i ]$reset Verifying integrity of package...\n"
 		sha256sum $input.tar.gz
 		mv $input.tar.gz /var/cache/glacier
-		printf "\033[1;32m [ $check ] \033[m Operation completed."
+		printf "\033[1;32m [ $check ] \033[m Operation completed.\n"
 		exit 0
 		;;
 		cache-install|-ci)
@@ -181,13 +181,13 @@ while [[ $# -gt 0 ]]; do
 		fi
 
 		printf "\033[1;34m [ ? ] \033[m Enter package name: " && read input
-		printf "\033[1;34m [ i ] \033[m Checking cache for $input.tar.gz... "
+		printf "\033[1;34m [ i ] \033[m Checking cache for $input.tar.gz...\n"
 		cd /var/cache/glacier && cp $input.tar.gz /tmp && cd /tmp
 			if [ "$?" != "0" ]; then
     				printf "\033[1;31m [ $error ] \033[m Could not fetch package from cache.\n" 1>&2
     				exit 1
 			fi
-		printf "\033[1;34m [ i ] \033[m Unpacking $input.tar.gz... "
+		printf "\033[1;34m [ i ] \033[m Unpacking $input.tar.gz...\n"
 		mkdir $input && mv $input.tar.gz $input && cd $input
 		tar -xf $input.tar.gz
 			if [ "$?" != "0" ]; then
