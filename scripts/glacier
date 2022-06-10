@@ -10,7 +10,7 @@ source /etc/glacier/hooks.sh
 while [[ $# -gt 0 ]]; do
 	case $1 in
 		-h|--help)
-		printf "$blue Glacier - A source based package manager written in POSIX sh $reset\n"
+		printf "$blue [ * ] Glacier - A source based package manager written in POSIX sh [ * ] $reset\n"
 		printf "$ glacier {-h --help}			show this message and exit\n"
 		printf "$ glacier {--version}			display the current Glacier version and exit\n"
 		printf "# glacier {install -f}			install a package\n"
