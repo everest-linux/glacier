@@ -22,6 +22,8 @@ Packages should be submitted by sending a pull request to https://github.com/eve
   
 # Latest News
 
+6/10/22 > ARM packages may be available soon. In the event you wish to install Everest on an ARM device, update `/etc/glacier.conf` accordingly, changing `glacier-pkgs` to `glacier-arm-pkgs`.
+
 6/8/22 > Basic package integrity checking. 2.1
 
 5/31/22 > Added command line parsing and condensed Glacier into a single script. 2.0
