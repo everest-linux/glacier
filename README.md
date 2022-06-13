@@ -1,4 +1,4 @@
-![alt text](https://raw.githubusercontent.com/everest-linux/amogus3016/main/glacierlogo.png)
+![alt text](https://raw.githubusercontent.com/everest-linux/amogus3016/main/glacier.png)
 
 # Glacier
 Glacier is the package manager developed for Everest Linux. It fetches packages from https://github.com/everest-linux/glacier-pkgs
