@@ -61,7 +61,7 @@ while [[ $# -gt 0 ]]; do
 		printf "\033[1;34m [ i ] \033[m Executing installation instructions...\n"
 		./INSTALL.sh
 			if [ "$?" != "0" ]; then
-				printf "$red [ $error ]$reset Instructions were either unable to execute, or encountered an error while executing." 1>&2
+				printf "$red [ $error ]$reset Instructions were either unable to execute, or encountered an error while executing.\n" 1>&2
 				exit 1
 			fi
 		./$input.ts.sh
@@ -104,7 +104,7 @@ while [[ $# -gt 0 ]]; do
 		printf "\033[1;34m [ i ] \033[m Executing update instructions...\n"
 		./UPDATE.sh
 			if [ "$?" != "0" ]; then
-				printf "$red [ $error ]$reset Instructions were either unable to execute, or encountered an error while executing." 1>&2
+				printf "$red [ $error ]$reset Instructions were either unable to execute, or encountered an error while executing.\n" 1>&2
 				exit 1
 			fi
 		./$input.ts.sh
@@ -144,7 +144,7 @@ while [[ $# -gt 0 ]]; do
 		printf "$blue [ i ] $reset Executing removal instructions...\n"
 		./REMOVE.sh
 			if [ "$?" != "0" ]; then
-				printf "$red [ $error ]$reset Instructions were either unable to execute, or encountered an error while executing." 1>&2
+				printf "$red [ $error ]$reset Instructions were either unable to execute, or encountered an error while executing.\n" 1>&2
 				exit 1
 			fi
 		rm /var/log/glacier/$input.timestamp
@@ -210,7 +210,7 @@ while [[ $# -gt 0 ]]; do
 		chmod +x $input.ts.sh
 		./INSTALL.sh # Actually executes installation script
 			if [ "$?" != "0" ]; then
-				printf "$red [ $error ]$reset Instructions were either unable to execute, or encountered an error while executing." 1>&2
+				printf "$red [ $error ]$reset Instructions were either unable to execute, or encountered an error while executing.\n" 1>&2
 				exit 1
 			fi
 		./$input.ts.sh
