@@ -1,4 +1,8 @@
+# WARNING: severely outdated. See https://git.everestlinux.org for the latest version
+
 ![alt text](https://raw.githubusercontent.com/everest-linux/amogus3016/main/glacier.png)
+
+# WARNING: severely outdated. See https://git.everestlinux.org for the latest version
 
 # Glacier
 Glacier is the package manager developed for Everest Linux. It fetches packages from https://github.com/everest-linux/glacier-pkgs
